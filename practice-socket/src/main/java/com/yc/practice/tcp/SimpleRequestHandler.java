@@ -1,4 +1,4 @@
-package com.yc.practice;
+package com.yc.practice.tcp;
 
 import java.net.Socket;
 

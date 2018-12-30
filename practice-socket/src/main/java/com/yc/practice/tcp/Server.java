@@ -1,4 +1,4 @@
-package com.yc.practice;
+package com.yc.practice.tcp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
