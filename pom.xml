@@ -6,9 +6,13 @@
 
     <groupId>practice</groupId>
     <artifactId>practice-project</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>practice-parent</module>
+        <module>practice-socket</module>
+        <module>practice-test</module>
+        <module>practice-class-loader</module>
     </modules>
 
 </project>

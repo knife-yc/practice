@@ -1,4 +1,4 @@
-package com.yc.practice.tcp;
+package com.yc.practice.socket.tcp;
 
 import java.util.concurrent.LinkedBlockingQueue;
 

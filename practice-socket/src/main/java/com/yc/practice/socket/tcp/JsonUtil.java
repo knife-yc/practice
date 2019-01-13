@@ -1,4 +1,4 @@
-package com.yc.practice.tcp;
+package com.yc.practice.socket.tcp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
