@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 
 public class ScheduledThreadPoolTest {
     public static void main(String[] args){
-        Executors.newFixedThreadPool()
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(10);
         int size = 1;
         for(int i = 0;i < size;i++){
