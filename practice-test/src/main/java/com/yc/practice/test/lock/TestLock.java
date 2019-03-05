@@ -1,5 +1,7 @@
 package com.yc.practice.test.lock;
 
+import org.junit.Test;
+
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -21,4 +23,10 @@ public class TestLock {
         condition.signal();
     }
 
+    @Test
+    public void testMoveBit(){
+        int c = 10;
+        c = c >>> 16;
+        System.out.println(c);
+    }
 }

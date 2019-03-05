@@ -7,7 +7,13 @@ public class TestThread implements Runnable {
         this.i = i;
     }
     public void run(){
-        String threadName = Thread.currentThread().getName();
-        System.out.println("threadName:"+threadName+",index:"+i+",currentTimeMS:"+System.currentTimeMillis());
+        try{
+            Thread.sleep(60000);
+            String threadName = Thread.currentThread().getName();
+            System.out.println("threadName:"+threadName+",index:"+i+",currentTimeMS:"+System.currentTimeMillis());
+        }catch(Exception e){
+
+        }
+
     }
 }

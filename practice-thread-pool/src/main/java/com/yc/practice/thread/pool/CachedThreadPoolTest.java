@@ -6,19 +6,21 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 public class CachedThreadPoolTest {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ExecutorService executorService = Executors.newCachedThreadPool();
         int size = 10000;
-        for(int i = 0;i < size;i++){
-            TestThread testThread = new TestThread(i);
-            executorService.execute(testThread);
-        }
         try {
+            for (int i = 0; i < size; i++) {
+                TestThread testThread = new TestThread(i);
+//                Thread.sleep(1000);
+                executorService.execute(testThread);
+            }
+
             Thread.sleep(10000);
-            int activeCount = ((ThreadPoolExecutor)executorService).getLargestPoolSize();
+            int activeCount = ((ThreadPoolExecutor) executorService).getLargestPoolSize();
             System.out.println(activeCount);
-            Thread.sleep(60000);
-            activeCount = ((ThreadPoolExecutor)executorService).getActiveCount();
+            Thread.sleep(40000);
+            activeCount = ((ThreadPoolExecutor) executorService).getActiveCount();
             System.out.println(activeCount);
         } catch (InterruptedException e) {
             e.printStackTrace();
