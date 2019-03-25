@@ -14,20 +14,9 @@ import java.net.Socket;
  */
 public class Client {
 	public static void main(String[] args) throws IOException {
-		// Passing null to getByName() produces the
-		// special "Local Loopback" IP address, for542
-		// testing on one machine w/o a network:
 		InetAddress addr = InetAddress.getByName(null);
-		// Alternatively, you can use
-		// the address or name:
-		// InetAddress addr =
-		// InetAddress.getByName("127.0.0.1");
-		// InetAddress addr =
-		// InetAddress.getByName("localhost");
 		System.out.println("addr = " + addr);
 		Socket socket = new Socket(addr, Server.PORT);
-		// Guard everything in a try-finally to make
-		// sure that the socket is closed:
 		try {
 			System.out.println("socket = " + socket);
 			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));

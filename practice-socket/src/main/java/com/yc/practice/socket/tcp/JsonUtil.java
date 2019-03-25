@@ -13,11 +13,8 @@ public class JsonUtil {
 	public static Logger logger = LoggerFactory.getLogger(JsonUtil.class);
 
 	public static String toString(Object object) {
-
-		// Convert object to JSON string
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-
 			String json = mapper.writeValueAsString(object);
 			return json;
 		} catch (JsonProcessingException e) {
@@ -25,15 +22,10 @@ public class JsonUtil {
 		} catch (Exception e) {
 			logger.error("json writeValueAsString Exception.", e);
 		}
-
 		return null;
-
 	}
 
 	public static <T> T parse(String jsonStr, Class<T> returnObjectClass) {
-
-		// Convert Json string to Object
-
 		try {
 			if (jsonStr == null) {
 				return null;
@@ -51,7 +43,6 @@ public class JsonUtil {
 		} catch (Exception e) {
 			logger.error("json readValue Exception.", e);
 		}
-
 		return null;
 
 	}
