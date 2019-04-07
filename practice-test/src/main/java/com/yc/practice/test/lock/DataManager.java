@@ -1,18 +1,28 @@
 package com.yc.practice.test.lock;
 
-import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class DataManager {
 
-    private Lock lock = new ReentrantLock();
+    private ReentrantLock lock = new ReentrantLock();
+    private Condition condition = lock.newCondition();
 
-    public void testMethod(){
+    public void testWait(){
         try{
             lock.lock();
-            System.out.println("get lock.......");
-            Thread.sleep(10000);
-            System.out.println("after sleep........");
+            condition.await();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            lock.unlock();
+        }
+    }
+
+    public void testSignal(){
+        try{
+            lock.lock();
+            condition.signal();
         }catch(Exception e){
             e.printStackTrace();
         }finally{

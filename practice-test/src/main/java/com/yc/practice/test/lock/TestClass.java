@@ -15,16 +15,16 @@ public class TestClass {
             TestThread thread = new TestThread("test-" + i, lock);
             thread.start();
         }
-        try{
+        try {
             Thread.sleep(10000000);
-        }catch(Exception e){
+        } catch (Exception e) {
 
         }
 
     }
 
     @Test
-    public void testLockSupport(){
+    public void testLockSupport() {
         DataManager dm = new DataManager();
         try {
             int size = 3;
@@ -36,20 +36,36 @@ public class TestClass {
             }
 
             Thread.sleep(1000);
-            for(int i = 0;i < size;i++){
+            for (int i = 0; i < size; i++) {
                 Thread t = list.get(i);
                 LockSupport.unpark(t);
                 Thread.sleep(1000);
             }
-//            LockSupport.unpark(t);
-//            System.out.println("main running............");
-
-//        TestThread t = new TestThread();
-//        t.start();
-//        t.interrupt();
-//        System.out.println(Thread.interrupted());
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testCondition() {
+        try {
+            DataManager dm = new DataManager();
+            int size = 1;
+            for (int i = 0; i < size; i++) {
+                ConditionAwaitThread awaitThread = new ConditionAwaitThread(dm, "awaitThread-" + i);
+                awaitThread.start();
+            }
+            Thread.sleep(10000);
+            for (int i = 0; i < size; i++) {
+                ConditionSignalThread signalThread = new ConditionSignalThread(dm, "signalThread-" + i);
+                signalThread.start();
+            }
+
+
+            Thread.sleep(10000000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 }

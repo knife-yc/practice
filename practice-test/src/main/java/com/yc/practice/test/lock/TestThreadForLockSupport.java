@@ -1,7 +1,7 @@
 package com.yc.practice.test.lock;
 
 import java.util.concurrent.locks.LockSupport;
-
+//测试多个线程使用同一个对象进行park
 public class TestThreadForLockSupport extends Thread{
     private DataManager dm;
     private int index;
@@ -12,14 +12,8 @@ public class TestThreadForLockSupport extends Thread{
 
     @Override
     public void run() {
-//        dm.testMethod();
         System.out.println("before  park ...............index:"+index);
         LockSupport.park(dm);
         System.out.println("after  park ...............index:"+index);
-//        System.out.println("before  park ...............");
-//        LockSupport.park();
-//        System.out.println(Thread.interrupted());
-//        System.out.println("after  park ...............");
-//        System.out.println(Thread.interrupted());
     }
 }
