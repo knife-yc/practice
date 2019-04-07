@@ -3,22 +3,21 @@ package com.yc.practice.test.lock;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class TestReenTrantLock {
+public class DataManager {
 
-    Lock lock = new ReentrantLock();
-    private String s = "lock getted...";
+    private Lock lock = new ReentrantLock();
 
-    public String get(){
+    public void testMethod(){
         try{
             lock.lock();
+            System.out.println("get lock.......");
             Thread.sleep(10000);
-            return s;
+            System.out.println("after sleep........");
         }catch(Exception e){
             e.printStackTrace();
-        }finally {
+        }finally{
             lock.unlock();
         }
-        return null;
     }
 
 }
