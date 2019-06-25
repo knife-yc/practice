@@ -1,9 +1,8 @@
 package com.yc.practice.algorithm.maxsubarray.leetcode;
 
-import org.junit.Test;
 public class TestClass {
 
-    @Test
+   
     public void test() {
         Building b = new Building();
         House h = new House();
@@ -15,17 +14,17 @@ public class TestClass {
 
     }
 
-    @Test
+   
     public void testReverse() {
 
     }
 
-    @Test
+   
     public void testReverse1(){
         ReverseInteger.reverseInteger(-12345);
     }
 
-    @Test
+   
     public void isPalindrome() {
         int x = 121;
         StringBuilder builder = new StringBuilder();
