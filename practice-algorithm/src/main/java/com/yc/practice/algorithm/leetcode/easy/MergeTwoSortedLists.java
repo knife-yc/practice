@@ -1,4 +1,6 @@
-package com.yc.practice.algorithm.maxsubarray.leetcode;
+package com.yc.practice.algorithm.leetcode.easy;
+
+import com.yc.practice.algorithm.leetcode.ListNode;
 
 public class MergeTwoSortedLists {
     /**

@@ -1,4 +1,4 @@
-package com.yc.practice.algorithm.maxsubarray.leetcode;
+package com.yc.practice.algorithm.leetcode;
 /*
 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
 

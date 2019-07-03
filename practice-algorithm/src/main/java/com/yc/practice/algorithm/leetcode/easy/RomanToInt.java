@@ -1,4 +1,4 @@
-package com.yc.practice.algorithm.maxsubarray.leetcode;
+package com.yc.practice.algorithm.leetcode.easy;
 /*
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 

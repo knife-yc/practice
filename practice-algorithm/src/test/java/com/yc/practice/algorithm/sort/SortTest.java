@@ -1,7 +1,7 @@
 package com.yc.practice.algorithm.sort;
 
-import com.yc.practice.algorithm.maxsubarray.leetcode.ListNode;
-import com.yc.practice.algorithm.maxsubarray.leetcode.MergeTwoSortedLists;
+import com.yc.practice.algorithm.leetcode.ListNode;
+import com.yc.practice.algorithm.leetcode.easy.MergeTwoSortedLists;
 import org.junit.Test;
 
 public class SortTest {

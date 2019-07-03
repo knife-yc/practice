@@ -1,4 +1,4 @@
-package com.yc.practice.algorithm.maxsubarray.leetcode;
+package com.yc.practice.algorithm.leetcode.easy;
 
 public class LongestCommonPrefix {
     /**
