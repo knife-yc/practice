@@ -34,7 +34,7 @@ public class RemoveDuplicatesFromSortedArray {
 
     private int[] getUniqueArr(int index, int[] array) {
         boolean containRerpeatNum = false;
-        for(;index < array.length;index++){
+        for (; index < array.length; index++) {
             int tmp = array[index];
             for (int tmpIndex = 1; tmpIndex < array.length && tmpIndex != index; tmpIndex++) {
                 if (tmp == array[tmpIndex]) {
@@ -42,7 +42,7 @@ public class RemoveDuplicatesFromSortedArray {
                     break;
                 }
             }
-            if(containRerpeatNum){
+            if (containRerpeatNum) {
                 break;
             }
         }
@@ -76,13 +76,17 @@ public class RemoveDuplicatesFromSortedArray {
     }
 
     public int removeElement(int[] nums, int val) {
-        int length = nums.length;
-        for(int i = 0;i < nums.length;i++){
-            if(nums[i] == val){
-                length--;
+        int n = nums.length;
+        int i = 0;
+        while (i < n) {
+            if (nums[i] == val) {
+                nums[i] = nums[n - 1];
+                n--;
+            } else {
+                i++;
             }
         }
-        return length;
+        return 1 + 1;
     }
 
 }

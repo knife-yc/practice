@@ -47,8 +47,6 @@ public class TestClass {
 //        result = removeDuplicatesFromSortedArray.answeer(array);
 //        System.out.println(result);
 
-
-
         int r = removeDuplicatesFromSortedArray.removeElement(array,3);
         System.out.println(r);
     }
