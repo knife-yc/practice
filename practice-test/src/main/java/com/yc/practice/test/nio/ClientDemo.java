@@ -55,7 +55,7 @@ public class ClientDemo {
                 int interestSet = SelectionKey.OP_READ | SelectionKey.OP_WRITE;
 
                 /*向选择器注册通道*/
-                sc.register(selector, interestSet, new Buffers(256, 256));
+                sc.register(selector, interestSet, new Buffers(1024*1024, 1024*1024));
 
                 /*向服务器发起连接,一个通道代表一条tcp链接*/
                 sc.connect(remoteAddress);
