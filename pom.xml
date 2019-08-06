@@ -15,6 +15,7 @@
         <module>practice-class-loader</module>
         <module>practice-thread-pool</module>
         <module>practice-algorithm</module>
+        <module>practice-netty</module>
     </modules>
 
     <build>

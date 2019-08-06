@@ -39,7 +39,7 @@ public class NioServer {
             SocketAddress socketAddress = new InetSocketAddress(port);
             serverSocketChannel.bind(socketAddress);
             serverSocketChannel.configureBlocking(false);
-            serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+            SelectionKey key = serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
             logger.info("server started,socketAddress:" + socketAddress);
         } catch (Exception e) {
             logger.error("NioServer,init Exception,port:" + port, e);
