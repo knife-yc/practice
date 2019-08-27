@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.migu.cresset.backend.mapper.TemplateMapper">
+    <sql id="column">
+        template_id templateId,name,width,height,html,css,color_system colorSystem,status,time_created timeCreated,time_modified timeModified
+    </sql>
+
+    <insert id="insertTemplate" useGeneratedKeys="true" keyProperty="templateId"
+            parameterType="cn.migu.cresset.backend.dataobject.TemplateDO">
+        insert into cresset_templates (name,width,height,html,css,color_system,status,time_created)
+        values (#{name},#{width},#{height},#{html},#{css},#{colorSystem},#{status},#{timeCreated})
+    </insert>
+
+    <update id="updateTemplate" parameterType="cn.migu.cresset.backend.dataobject.TemplateDO">
+        update cresset_templates
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="html != null">
+                html = #{html},
+            </if>
+            <if test="width != null">
+                width = #{width},
+            </if>
+            <if test="height != null">
+                height = #{height},
+            </if>
+            <if test="css != null">
+                css = #{css},
+            </if>
+            <if test="colorSystem != null">
+                color_system = #{colorSystem},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            time_modified = #{timeModified}
+        </set>
+        <where>
+            template_id = #{templateId}
+        </where>
+    </update>
+
+    <select id="selectTemplate" parameterType="java.lang.Integer"
+            resultType="cn.migu.cresset.backend.dataobject.TemplateDO">
+        select
+        <include refid="column"/>
+        from cresset_templates
+        where template_id = #{templateId}
+    </select>
+
+    <select id="selectTemplateListByColorSystem" parameterType="java.lang.String" resultType="cn.migu.cresset.backend.dataobject.TemplateDO">
+        select
+        <include refid="column"/>
+        from cresset_templates
+        <if test="colorSystem != null">
+            where
+            color_system = #{colorSystem}
+        </if>
+    </select>
+
+    <delete id="deleteTemplateById" parameterType="java.lang.Integer">
+        delete from cresset_templates where template_id = #{templateId}
+    </delete>
+
+    <select id="selectTemplateColorSystem" resultType="java.lang.String">
+        select distinct color_system from cresset_templates order by color_system asc
+    </select>
+</mapper>

@@ -7,7 +7,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 public class HttpFileServer {
-    public final static String DEFAULT_URL = "/practice-netty/src/main/java";
+    public final static String DEFAULT_URL = "/practice-netty/test";
 
     public void run(final int port, final String url) throws Exception {
         EventLoopGroup bossGroup = new NioEventLoopGroup();

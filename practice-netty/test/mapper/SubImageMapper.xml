@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.migu.cresset.backend.mapper.SubImageMapper">
+    <sql id="column">
+        sub_image_id subImageId,super_image_id superImageId,name,identifier,width,height,optim,
+        quality,size,status,time_created timeCreated,time_modified timeModified
+    </sql>
+
+    <insert id="insertSubImageList" useGeneratedKeys="true" keyProperty="subImageId" parameterType="cn.migu.cresset.backend.dataobject.SubImageDO">
+        insert into cresset_sub_images (super_image_id,name,identifier,width,height,optim,quality,size,status,time_created)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+                #{item.superImageId},
+                #{item.name},
+                #{item.identifier},
+                #{item.width},
+                #{item.height},
+                #{item.optim},
+                #{item.quality},
+                #{item.size},
+                #{item.status},
+                #{item.timeCreated}
+            )
+        </foreach>
+
+    </insert>
+
+    <insert id="insertSubImage" useGeneratedKeys="true" keyProperty="subImageId" parameterType="cn.migu.cresset.backend.dataobject.SubImageDO">
+        insert into cresset_sub_images
+        (super_image_id,name,identifier,width,height,optim,quality,size,status,time_created,time_modified)
+        values (#{superImageId},#{name},#{identifier},#{width},#{height},#{optim},#{quality},#{size},0,now(),now())
+    </insert>
+
+    <update id="updateSubImage" parameterType="cn.migu.cresset.backend.dataobject.SubImageDO">
+        update cresset_sub_images
+        <set>
+            <if test="superImageId">
+                super_image_id = #{superImageId},
+            </if>
+            <if test="name">
+                name = #{name},
+            </if>
+            <if test="identifier">
+                identifier = #{identifier},
+            </if>
+            <if test="width">
+                width = #{width},
+            </if>
+            <if test="height">
+                height = #{height},
+            </if>
+            <if test="optim">
+                optim = #{optim},
+            </if>
+            <if test="quality">
+                quality = #{quality},
+            </if>
+            <if test="size">
+                size = #{size},
+            </if>
+            <if test="status">
+                status = #{status},
+            </if>
+            time_modified = now()
+        </set>
+        <where>
+            sub_image_id = #{subImageId}
+        </where>
+    </update>
+
+    <select id="selectSubImageById" parameterType="java.lang.Integer" resultType="cn.migu.cresset.backend.dataobject.SubImageDO">
+        select
+        <include refid="column"/>
+        from cresset_sub_images
+        where
+        sub_image_id = #{subImageId} and status != 7
+    </select>
+
+    <select id="selectSubImageListBySuperImageId" parameterType="java.lang.Integer" resultType="cn.migu.cresset.backend.dataobject.SubImageDO">
+        select
+        <include refid="column"/>
+        from cresset_sub_images
+        where super_image_id = #{superImageId}
+    </select>
+
+    <delete id="deleteSubImageById" parameterType="java.lang.Integer">
+        delete from cresset_sub_images where sub_image_id = #{subImageId}
+    </delete>
+
+    <delete id="deleteSubImageBySuperImageId" parameterType="java.lang.Integer">
+        delete from cresset_sub_images where super_image_id = #{superImageId}
+    </delete>
+</mapper>

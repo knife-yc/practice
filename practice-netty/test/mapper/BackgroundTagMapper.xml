@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.migu.cresset.backend.mapper.BackgroundTagMapper">
+    <sql id="column">
+        id,background_id backgroundId,tag,status,time_created timeCreated,time_modified timeModified
+    </sql>
+
+    <select id="selectBackgroundTagById" parameterType="java.lang.Integer" resultType="cn.migu.cresset.backend.dataobject.BackgroundTagDO">
+        select
+        <include refid="column"/>
+        from cresset_background_tags
+        where id = #{id}
+    </select>
+
+    <select id="selectBackgroundTagByBackgroundId" resultType="cn.migu.cresset.backend.dataobject.BackgroundTagDO">
+        select
+        <include refid="column"/>
+        from cresset_background_tags
+        where background_id = #{backgroundId}
+        <if test="tags.length > 0">
+            and tag in
+            <foreach collection="tags" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <insert id="insertBackgroundTag" useGeneratedKeys="true" keyProperty="id" parameterType="cn.migu.cresset.backend.dataobject.BackgroundTagDO">
+        insert into cresset_background_tags (background_id,tag,status,time_created)
+        values (#{backgroundId},#{tag},#{status},#{timeCreated})
+    </insert>
+
+    <update id="updateBackgroundTag" parameterType="cn.migu.cresset.backend.dataobject.BackgroundTagDO">
+        update cresset_background_tags
+        <set>
+            <if test="backgroundId != null">
+                background_id = #{backgroundId},
+            </if>
+            <if test="tag != null">
+                tag = #{tag},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            time_modified = #{timeModified}
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <delete id="deleteBackgroundTagById" parameterType="java.lang.Integer">
+        delete from cresset_background_tags where id = #{id}
+    </delete>
+
+    <delete id="deleteTagByBackgroundIdAndTag">
+        delete from cresset_background_tags where background_id = #{backgroundId}
+        and tag in
+        <foreach collection="tags" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <delete id="deleteBackgroundTagByBackgroundId">
+        delete from cresset_background_tags where background_id = #{backgroundId}
+    </delete>
+
+    <select id="selectBackgroundTags" resultType="java.lang.String">
+        select distinct tag from cresset_background_tags order by tag asc
+    </select>
+</mapper>

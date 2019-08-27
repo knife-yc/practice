@@ -41,6 +41,10 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
             sendError(ctx, HttpResponseStatus.FORBIDDEN);
             return;
         }
+        if (path.equals("/favicon.ico")) {
+            return;
+        }
+
         File file = new File(path);
         if (file.isHidden() || !file.exists()) {
             sendError(ctx, HttpResponseStatus.NOT_FOUND);
@@ -134,7 +138,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
     }
 
 
-    private final static Pattern ALLOW_FILE_NAME = Pattern.compile("A-Za-z0-9[-_A-Za-z\\.]*");
+    private final static Pattern ALLOW_FILE_NAME = Pattern.compile("[A-Za-z0-9]*.[A-Za-z0-9]*");
 
     private void sendListing(ChannelHandlerContext ctx, File dir) {
         FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
@@ -157,7 +161,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
             if (!ALLOW_FILE_NAME.matcher(name).matches()) {
                 continue;
             }
-            builder.append("<li><a href=\"").append(name).append(">\"").append(name).append("\"</a></li>\r\n");
+            builder.append("<li><a href=\"").append(name).append("\">").append(name).append("</a></li>\r\n");
         }
         builder.append("</ul></body></html>\r\n");
         ByteBuf buf = Unpooled.copiedBuffer(builder, CharsetUtil.UTF_8);
