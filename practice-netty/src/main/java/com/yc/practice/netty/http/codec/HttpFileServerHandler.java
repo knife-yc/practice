@@ -41,9 +41,11 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
             sendError(ctx, HttpResponseStatus.FORBIDDEN);
             return;
         }
+
         if (path.equals("/favicon.ico")) {
             return;
         }
+
 
         File file = new File(path);
         if (file.isHidden() || !file.exists()) {
@@ -171,7 +173,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
     }
 
     private void sendRedirect(ChannelHandlerContext ctx, String newUri) {
-        FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
+        FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.FOUND);
         response.headers().set(HttpHeaderNames.LOCATION, newUri);
         ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     }
