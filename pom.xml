@@ -16,6 +16,7 @@
         <module>practice-thread-pool</module>
         <module>practice-algorithm</module>
         <module>practice-netty</module>
+        <module>practice-vertx</module>
     </modules>
 
     <build>
