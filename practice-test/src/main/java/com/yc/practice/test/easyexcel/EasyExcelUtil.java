@@ -15,15 +15,18 @@ import java.util.concurrent.TimeUnit;
 public class EasyExcelUtil {
 
     public static void write(String fileName, String sheetName) {
+        long timeBeginMS = System.currentTimeMillis();
         ExcelWriter excelWriter = EasyExcel.write(fileName, DemoModel.class).build();
         WriteSheet writeSheet = EasyExcel.writerSheet(sheetName).build();
         excelWriter.write(data(), writeSheet);
         excelWriter.finish();
+        long timeEndMS = System.currentTimeMillis();
+        System.out.println("cost:" + (timeEndMS - timeBeginMS));
     }
 
     private static List<DemoModel> data() {
         List<DemoModel> list = new ArrayList<>();
-        int size = 100;
+        int size = 3000;
 
         for (int index = 0; index < size; index++) {
             DemoModel dm = new DemoModel();
@@ -39,6 +42,7 @@ public class EasyExcelUtil {
     public static List<DemoModel> read(String fileName) {
         final CountDownLatch latch = new CountDownLatch(1);
         DataListener listener = new DataListener(latch);
+        long timeBeginMS = System.currentTimeMillis();
         ExcelReader excelReader = EasyExcel.read(fileName, DemoModel.class, listener).build();
         ReadSheet readSheet = EasyExcel.readSheet(0).build();
         excelReader.read(readSheet);
@@ -49,6 +53,8 @@ public class EasyExcelUtil {
             e.printStackTrace();
             return null;
         }
+        long timeEndMS = System.currentTimeMillis();
+        System.out.println("cost:" + (timeEndMS - timeBeginMS));
         return listener.getDataList();
     }
 }

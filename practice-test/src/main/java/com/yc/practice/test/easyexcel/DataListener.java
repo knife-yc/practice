@@ -19,7 +19,7 @@ public class DataListener<DemoModel> extends AnalysisEventListener<DemoModel> {
     @Override
     public void invoke(DemoModel data, AnalysisContext context) {
         dataList.add(data);
-        System.out.println(data);
+//        System.out.println(data);
     }
 
     @Override
