@@ -7,6 +7,7 @@ public class TestMain {
     public static void main(String[] args) {
 //        write();
         read();
+//        writeWithStyle();
     }
 
     public static void read() {
@@ -19,5 +20,11 @@ public class TestMain {
         String fileName = "text.xlsx";
         String sheetName = "test";
         EasyExcelUtil.write(fileName, sheetName);
+    }
+
+    private static void writeWithStyle() {
+        String fileName = "text.xlsx";
+        String sheetName = "test";
+        EasyExcelUtil.writeWithStyle(fileName, sheetName);
     }
 }
