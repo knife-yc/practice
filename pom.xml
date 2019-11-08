@@ -17,7 +17,24 @@
         <module>practice-algorithm</module>
         <module>practice-netty</module>
         <module>practice-vertx</module>
+        <module>practice-spring</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <!-- <finalName>${project.artifactId}-${project.version}-${current.time}</finalName> -->

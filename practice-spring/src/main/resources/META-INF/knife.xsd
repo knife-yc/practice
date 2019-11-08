@@ -1,0 +1,39 @@
+<xsd:schema
+	 xmlns="http://39.105.31.40:8080/schema"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://39.105.31.40:8080/schema">
+ <xsd:complexType name="knifecomplexType">
+	 <xsd:attribute name="id" type="xsd:string">
+		 <xsd:annotation>
+			 <xsd:documentation><![CDATA[ bean id ]]></xsd:documentation>
+		 </xsd:annotation>
+	 </xsd:attribute>
+	 <xsd:attribute name="service" type="xsd:string">
+		 <xsd:annotation>
+			 <xsd:documentation><![CDATA[ The service name,like:com.yc.DemoService ]]></xsd:documentation>
+		 </xsd:annotation>
+	 </xsd:attribute>
+	 <xsd:attribute name="serviceAlias" type="xsd:string">
+		 <xsd:annotation>
+			 <xsd:documentation><![CDATA[ The service alias,like:yc.permService ]]></xsd:documentation>
+		 </xsd:annotation>
+	 </xsd:attribute>
+	 <xsd:attribute name="version" type="xsd:string">
+		 <xsd:annotation>
+			 <xsd:documentation><![CDATA[ The service version. ]]></xsd:documentation>
+		 </xsd:annotation>
+	 </xsd:attribute>
+	 <!--定义标签中的属性以及对应的数据类型-->
+	 <xsd:attribute name="consumer" type="xsd:string">
+		 <xsd:annotation>
+			 <xsd:documentation><![CDATA[ The consumer interface location,like:com.yc.demo.consumer.DemoConsumer. ]]></xsd:documentation>
+		 </xsd:annotation>
+	 </xsd:attribute>
+ </xsd:complexType>
+	<!--定义标签名称为knife，使用样例：<${name}: knife>-->
+ <xsd:element name="knife" type="knifecomplexType">
+	 <xsd:annotation>
+		 <xsd:documentation><![CDATA[ knife的文档 ]]></xsd:documentation>
+	 </xsd:annotation>
+ </xsd:element>
+</xsd:schema>

@@ -1,0 +1,10 @@
+spring自定义标签总结：
+需要准备的文件：
+.xsd文件
+spring.handlers
+spring.schemas
+三个文件放在resources文件夹下的META-INF目录中
+xsd文件注意：
+必须定义id属性
+xmlns属性需要定义能访问到的地址
+targetNamespace属性值需要在对应xml配置文件中xsi:schemaLocation的配置找到
