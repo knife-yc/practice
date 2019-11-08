@@ -1,1 +1,1 @@
-http\://39.105.31.40\:8080/schema=com.yc.practice.spring.custom.xsd.CustomNamespaceHandler
+http\://www.example.com/schema=com.yc.practice.spring.custom.xsd.CustomNamespaceHandler

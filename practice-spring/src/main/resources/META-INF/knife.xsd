@@ -1,7 +1,7 @@
 <xsd:schema
-	 xmlns="http://39.105.31.40:8080/schema"
+	 xmlns="http://www.example.com/schema"
 	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	 targetNamespace="http://39.105.31.40:8080/schema">
+	 targetNamespace="http://www.example.com/schema">
  <xsd:complexType name="knifecomplexType">
 	 <xsd:attribute name="id" type="xsd:string">
 		 <xsd:annotation>

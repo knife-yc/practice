@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:knife="http://39.105.31.40:8080/schema"
+       xmlns:knife="http://www.example.com/schema"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://39.105.31.40:8080/schema http://39.105.31.40:8080/schema/knife.xsd">
+       http://www.example.com/schema http://www.example.com/schema/knife.xsd">
     <knife:knife id="testDemo" consumer="com.yc.practice.spring.custom.DemoConsumer" service="com.yc.practice.DemoService"
                  serviceAlias="yc.permService" version="1.0.0"/>
 </beans>
