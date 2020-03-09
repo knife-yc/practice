@@ -36,6 +36,12 @@
             <artifactId>guava</artifactId>
             <version>23.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.dyuproject.protostuff/protostuff-runtime -->
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>1.0.9</version>
+        </dependency>
 
     </dependencies>
 
