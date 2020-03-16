@@ -18,6 +18,8 @@
         <module>practice-netty</module>
         <module>practice-vertx</module>
         <module>practice-spring</module>
+        <module>practice-shiro</module>
+        <module>practice-shiro-test</module>
     </modules>
 
     <dependencies>
