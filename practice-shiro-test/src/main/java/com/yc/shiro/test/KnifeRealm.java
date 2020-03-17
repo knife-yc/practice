@@ -24,7 +24,7 @@ public class KnifeRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        System.out.println("doGetAuthenticationInfo");
+        System.out.println("KnifeRealm doGetAuthenticationInfo");
         return new SimpleAuthenticationInfo();
     }
 }
