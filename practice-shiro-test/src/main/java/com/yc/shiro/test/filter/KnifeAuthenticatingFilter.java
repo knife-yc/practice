@@ -1,4 +1,4 @@
-package com.yc.shiro.test;
+package com.yc.shiro.test.filter;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;

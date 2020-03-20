@@ -1,4 +1,4 @@
-package com.yc.shiro.test;
+package com.yc.shiro.test.filter;
 
 import org.apache.shiro.web.filter.authz.AuthorizationFilter;
 

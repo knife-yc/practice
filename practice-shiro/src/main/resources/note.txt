@@ -1,0 +1,13 @@
+客户端调用需要认证的url流程(authc对应的url)，执行者为authc对应的filter，本例中为CustomBootAuthenticatingFilter
+1、判断是否具有调用权限，执行isAccessAllowed方法
+2、如果第一步返回false，执行onAccessDenied方法，onAccessDenied方法中一般会做登陆操作，执行executeLogin
+3、executeLogin中首先需要创建token，调用filter中的createToken方法
+4、token创建之后，转到ream中的supports方法，校验新建的token是否符合自定义的规则
+5、supports返回true之后，执行登陆认证校验方法doGetAuthenticationInfo，在这个方法中将前面的token信息取出，根据取出的数据在数据库中查询，生成校验的token
+6、shiro插件根据创建的token和数据库查询出的token进行比较，相同则通过，调用onLoginSuccess方法，不同则失败，调用onLoginFailure方法
+
+
+客户端调用需要授权的url流程（perms对应的url），执行者为perms对应的filter，本例中为CustomBootAuthorizationFilter
+1、首先执行的是filter的执行isAccessAllowed方法，在本方法中调用subject.hasRoles()或者subject.checkPermission()方法可以触发realm中的doGetAuthorizationInfo方法
+2、如果第一步返回false，自动跳转到登陆认证的接口，返回true的话则直接执行对应的接口
+3、认证不通过直接返回错误

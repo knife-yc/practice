@@ -1,4 +1,4 @@
-package com.yc.shiro.test;
+package com.yc.shiro.test.realm;
 
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
