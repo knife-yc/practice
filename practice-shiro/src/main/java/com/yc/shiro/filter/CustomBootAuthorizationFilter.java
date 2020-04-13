@@ -29,7 +29,7 @@ public class CustomBootAuthorizationFilter extends AuthorizationFilter {
         System.out.println("----------授权CustomBootAuthorizationFilter.isAccessAllowed----------");
         Subject subject = SecurityUtils.getSubject();
         if (!subject.isAuthenticated()) {
-            //没有登陆就调用本次接口
+            //没有登陆的情况下调用本接口
             return false;
         }
 
