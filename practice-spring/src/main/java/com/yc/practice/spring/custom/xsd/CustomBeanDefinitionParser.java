@@ -22,6 +22,8 @@ public class CustomBeanDefinitionParser extends AbstractSingleBeanDefinitionPars
     protected void doParse(Element element, BeanDefinitionBuilder builder) {
         try {
             builder.getBeanDefinition().setBeanClass(ConsumerProxy.class);
+            //设置创建这个bean的工厂方法，不设置的话则直接走构造方法
+            builder.setFactoryMethod("getInstance");
             builder.addConstructorArgValue(element.getAttribute("service"));
             builder.addConstructorArgValue(element.getAttribute("version"));
             builder.addConstructorArgValue(element.getAttribute("serviceAlias"));

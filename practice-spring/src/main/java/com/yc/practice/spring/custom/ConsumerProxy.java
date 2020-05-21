@@ -14,6 +14,10 @@ public class ConsumerProxy {
         this.consumer = consumer;
     }
 
+    public static ConsumerProxy getInstance(String service, String version, String serviceAlias, Class<?> consumer) {
+        return new ConsumerProxy(service, version, serviceAlias, consumer);
+    }
+
     public String getService() {
         return service;
     }
