@@ -20,6 +20,7 @@
         <module>practice-spring</module>
         <module>practice-shiro</module>
         <module>practice-shiro-test</module>
+        <module>practice-servlet</module>
     </modules>
 
     <dependencies>
