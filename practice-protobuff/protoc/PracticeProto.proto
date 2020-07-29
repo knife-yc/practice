@@ -1,0 +1,8 @@
+syntax = "proto3";
+option java_package = "com.yc.practice.proto.generate";
+
+message PracticeTest{
+    int32 id = 1;
+    string name = 2;
+    int32 age = 3;
+}
