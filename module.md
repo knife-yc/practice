@@ -70,7 +70,7 @@
       }],
       "rows": [{
         "im_whole_overview__stat_at": "2018-01-02 00:00:00,原始值",
-        "im_whole_overview__stat_at_tooltips": "1月2日，显示值"
+        "im_whole_overview__stat_at_format": "1月2日，格式化之后的值"
       }]    
     }
   } 
